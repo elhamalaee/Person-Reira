@@ -1,20 +1,35 @@
-#Project Title: Reira_CRUDPerson
-#Description: adding summery Personel bio data containing FirstName,LastName,NationalCode,BirthDate
- #data structure : table Persons
- Id int primarykey (using as Person id)
-        FirstName nvarchar(255)
-        LastName nvarchar(255)
-        NationalCode nvarchar(10)
-        BirthDate (Year int,Month int,Day int)
-        #pages:
-        1-index.cshtml
-          Listing/reading all person data .
-        2-Create.cshtml
-           adding a new person by(FirstName,LastName,NationalCode,BirthDate). in this step checking NationalCode is not duplicated,             in case of entering duplicated NationalCode alerting through an error message,
-           nevertheless, after inserting a new person data, redirect the enduser to page index.cshtml to see the list of perons have            been added.
-        3-updating data(FirstName,LastName,NationalCode,BirthDate)
-           finding a person by PersonId which is accessible through index.cshtml,loading existed data and providing availability to             changing and updating data. 
-        4-Delete.cshtml
-           finding a person by PersonId which is accessible through index.cshtml,if existed remove from table Persons,
-           removing data phisically from data source is not a recommended way to eliminate data ,particularly is is forbiden when data would be foreign key of other tables, is should be better to have another field like "IsDeleted(bit)" to flag it as deleted row,in such cases where clause "Isdeleted=0" should be added to select scripts.
+
+# Project Title: Reira_CRUDPerson
+
+## Description
+Adding summary personnel bio data containing FirstName, LastName, NationalCode, BirthDate.
+
+## Data Structure
+### Table: Persons
+- **Id**: `int` (Primary Key, used as Person ID)
+- **FirstName**: `nvarchar(255)`
+- **LastName**: `nvarchar(255)`
+- **NationalCode**: `nvarchar(10)`
+- **BirthDate**: 
+  - **Year**: `int`
+  - **Month**: `int`
+  - **Day**: `int`
+
+## Pages
+1. **index.cshtml**
+   - Listing/reading all person data.
+
+2. **Create.cshtml**
+   - Adding a new person by FirstName, LastName, NationalCode, BirthDate.
+   - Checking NationalCode is not duplicated; if duplicated, alerting through an error message.
+   - After inserting new person data, redirecting the end user to index.cshtml to see the list of persons added.
+
+3. **Update.cshtml**
+   - Updating data (FirstName, LastName, NationalCode, BirthDate).
+   - Finding a person by PersonId accessible through index.cshtml, loading existing data, and providing availability to change and update data.
+
+4. **Delete.cshtml**
+   - Finding a person by PersonId accessible through index.cshtml; if existing, remove from table Persons.
+   - Removing data physically from the data source is not recommended, especially if the data is a foreign key in other tables. It is better to have another field like `IsDeleted(bit)` to flag it as a deleted row. In such cases, add the clause `IsDeleted=0` to select scripts.
+
            
